@@ -50,13 +50,14 @@ export const Navigation = () => {
      if (isMobile) {
           return (
                <Sheet open = {isOpen} onOpenChange = {setIsOpen}>
-                    <SheetTrigger>
+                    <SheetTrigger>   { /* Added asChild and span for stopping nested buttons */}
                          <Button variant = "outline" size = "sm"
                               className="font-normal bg-white/10 hover:bg-white/20 hover:text-white border-none focus-visible:ring-offset-0 focus-visible:ring-transparent outline-none text-white focus:bg-white/30 transition"
                          >
                               <Menu className="size-4" />
                          </Button>
                     </SheetTrigger>
+
                     <SheetContent side = "left" className = "px-2">
                          <nav className = "flex flex-col gap-y-2 pt-6">
                               { routes.map( (route) => (
