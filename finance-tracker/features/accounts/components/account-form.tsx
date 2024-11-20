@@ -54,15 +54,15 @@ export const AccountForm = ({
      };
 
      return (
-          <Form {...form}>
+          <Form { ...form }>
                <form 
-                    onSubmit = {form.handleSubmit(handleSubmit)} 
+                    onSubmit = { form.handleSubmit(handleSubmit) } 
                     className="space-y-4 pt-4"
                >
                     <FormField
                          name = "name"
-                         control = {form.control}
-                         render = {({ field }) => (
+                         control = { form.control }
+                         render = { ( { field } ) => (
                               <FormItem>
                                    <FormLabel>
                                         Name
@@ -70,25 +70,25 @@ export const AccountForm = ({
                               
                                    <FormControl>
                                         <Input 
-                                             disabled = {disabled}
+                                             disabled = { disabled }
                                              placeholder="e.g Cash, Bank, Credit Card"
-                                             {...field}
+                                             { ...field }
                                         />
                                    </FormControl>
                               </FormItem>
                          )}
                     />
 
-                    <Button className = "w-full" disabled = {disabled}>
-                         {id ? "Save changes": "Create account"}
+                    <Button className = "w-full" disabled = { disabled }>
+                         { id ? "Save changes": "Create account" }
                     </Button>
                     
                     { !!id && 
                          ( 
                          <Button
                               type = "button"
-                              disabled = {disabled}
-                              onClick = {handleDelete}
+                              disabled = { disabled }
+                              onClick = { handleDelete }
                               className = "w-full"
                               variant = "outline"
                          >
