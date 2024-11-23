@@ -34,6 +34,7 @@ type FormValues = z.input<typeof formSchema>;
 
      const createMutation = useCreateTransaction();
 
+     // Category
      const categoryQuery = useGetCategories();
      const categoryMutation = useCreateCategory();
      const onCreateCategory = (name: string) => categoryMutation.mutate( {

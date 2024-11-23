@@ -5,36 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1731424466658,
-      "tag": "0000_solid_grim_reaper",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1731424591910,
-      "tag": "0001_steady_tana_nile",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1731424639564,
-      "tag": "0002_puzzling_blue_marvel",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1732105688386,
-      "tag": "0003_flaky_garia",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1732270073990,
-      "tag": "0004_black_silverclaw",
+      "when": 1732359667277,
+      "tag": "0000_superb_siren",
       "breakpoints": true
     }
   ]

@@ -27,7 +27,7 @@ export const useBulkDeleteTransactions = () => {
           },
 
           onError: () => {
-               toast.error("Failded to delete transactions");
+               toast.error("Failed to delete transactions");
           },
      });
 
