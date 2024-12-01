@@ -46,6 +46,16 @@ export const useSelectAccount = (): [ () => JSX.Element, () => Promise<unknown>]
           handleClose();
      };
 
+     // const handleConfirm = () => {
+     //      if (!selectValue.current) {
+     //          alert("Please select an account.");
+     //          return;
+     //      }
+     //      promise?.resolve(selectValue.current);
+     //      handleClose();
+     //  };
+      
+
      const handleCancel = () => {
           promise?.resolve(undefined);
           handleClose();
