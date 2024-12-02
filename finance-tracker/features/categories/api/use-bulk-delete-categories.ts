@@ -23,7 +23,8 @@ export const useBulkDeleteCategories = () => {
           onSuccess: () => {
                toast.success("Categories deleted");
                queryClient.invalidateQueries( { queryKey: ["categories"] } );   // Refresing categories key
-               // TODO : INVALIDATE SUMMARY
+               queryClient.invalidateQueries( { queryKey: ["summary"] } );   // Refresing summary key
+               queryClient.invalidateQueries( { queryKey: ["transactions"] } );   // Refresing transactions key
           },
 
           onError: () => {
