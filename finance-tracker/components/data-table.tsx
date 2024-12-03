@@ -49,7 +49,7 @@ export function DataTable<TData, TValue>({
           "You are about to delete"
      );
 
-     const [sorting, setSorting] = React.useState<SortingState>([])        // sort
+     const [sorting, setSorting] = React.useState<SortingState>([])        
      const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
           []
      )
@@ -60,15 +60,14 @@ export function DataTable<TData, TValue>({
           columns,
           getCoreRowModel: getCoreRowModel(),
           getPaginationRowModel: getPaginationRowModel(),
-          // sorting transactions
           onColumnFiltersChange: setColumnFilters,
           getFilteredRowModel: getFilteredRowModel(),
           onRowSelectionChange: setRowSelection,
           onSortingChange: setSorting,
           getSortedRowModel: getSortedRowModel(),
           state: {
-               sorting,       // Filter and Sort
-               columnFilters,      // Filter
+               sorting,       
+               columnFilters,      
                rowSelection,
           },
           // end

@@ -27,10 +27,6 @@ const routes = [
           href: "/categories", 
           label: "Categories"
      },
-     {
-          href: "/settings", 
-          label: "Settings"
-     },
 ]
 
 export const Navigation = () => {
@@ -48,7 +44,7 @@ export const Navigation = () => {
      if (isMobile) {
           return (
                <Sheet open = {isOpen} onOpenChange = {setIsOpen}>
-                    <SheetTrigger>   { /* Added asChild and span for stopping nested buttons */}
+                    <SheetTrigger>
                          <Button 
                               variant = "outline" 
                               size = "sm"

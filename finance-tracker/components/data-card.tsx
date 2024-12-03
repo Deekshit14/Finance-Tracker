@@ -16,9 +16,9 @@ const boxVariant = cva(
      {
           variants: {
                variant: {
-                    default: "bg-blue-500/20",
-                    success: "bg-emerald-500/20",
-                    danger: "bg-rose-500/20",
+                    default: "bg-blue-700/40",
+                    success: "bg-emerald-700/40",
+                    danger: "bg-rose-700/40",
                     warning: "bg-yellow-500/20",
                }
           },
@@ -33,10 +33,10 @@ const iconVariant = cva(
      {
           variants: {
                variant: {
-                    default: "fill-blue-500",
-                    success: "fill-emerald-500",
-                    danger: "fill-rose-500",
-                    warning: "fill-yellow-500",
+                    default: "fill-blue-300",
+                    success: "fill-emerald-300",
+                    danger: "fill-rose-300",
+                    warning: "fill-yellow-300",
                }
           },
           defaultVariants: {
@@ -65,13 +65,22 @@ export const DataCard = ( {
      percentageChange = 0,
 }: DataCardProps ) => {
      return (
-          <Card className = "border-none drop-shadow-sm">
+          // <Card className = "border-none drop-shadow-sm border border-gray-300 shadow-[0_4px_10px_rgba(0,0,0,0.25)] rounded-lg">
+          <Card className={cn(
+               title === "Income"
+                 ? "bg-gradient-to-r from-[#818cf8] via-[#3b82f6] to-[#4f46e5]" // success background for Income
+                 : title === "Expenses"
+                 ? "bg-gradient-to-r from-[#fda4af]  to-[#f43f5e]"  // danger background for Expenses
+                 : "bg-gradient-to-r from-[#4aca79] via-[#14b8a6] to-[#16a9ce]",  // default background
+               "border-none drop-shadow-sm border border-gray-400 shadow-[0_4px_10px_rgba(0,0,0,0.5)] rounded-lg"
+             )}
+          >
                <CardHeader className = "flex flex-row items-center justify-between gap-x-4">
                <div className = "space-y-2">
-                    <CardTitle className = "text-2xl line-clamp-1">
+                    <CardTitle className = "text-2xl line-clamp-1 text-black">
                          {title}
                     </CardTitle>
-                    <CardDescription className = "line-clamp-1">
+                    <CardDescription className = "line-clamp-1 text-[hsl(215.4deg_18.73%_32.75%)]">
                          {dateRange}
                     </CardDescription>
                </div>
@@ -91,11 +100,12 @@ export const DataCard = ( {
                          />
                     </h1>
                     <p className = {cn(
-                         "text-muted-foreground text-sm line-clamp-1",
-                         percentageChange > 0 && "text-emerald-500",
-                         percentageChange < 0 && "text-rose-500",
+                         // "text-muted-foreground text-sm line-clamp-1",
+                         "text-[hsl(215.4deg_18.73%_32.75%)]",
+                         // percentageChange > 0 && "text-[#2A00BF]",
+                         // percentageChange < 0 && "text-rose-700",
                     )}>
-                         {formatPercentage(percentageChange, { addPrefix: true } )} from last period
+                         {/* {formatPercentage(percentageChange, { addPrefix: true } )} from last period */}
                     </p>
                </CardContent>
           </Card>

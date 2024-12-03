@@ -31,15 +31,13 @@ export const Chart = ( { data = [] }: Props ) => {
      const [chartType, setChartType] = useState("area");
 
      const onTypeChange = (type: string) => {
-          // Todo: Add paywall
-
           setChartType(type);
      };
 
      return (
-          <Card className = "border-none drop-shadow-sm">
+          <Card className = "bg-[#142a55] border-none drop-shadow-sm border border-gray-400 shadow-[0_4px_10px_rgba(0,0,0,0.15)] rounded-lg">
                <CardHeader className = "flex space-y-2 lg:space-y-0 lg:flex-row lg:items-center justify-between">
-                    <CardTitle className = "text-xl line-clamp-1">
+                    <CardTitle className = "text-xl line-clamp-1 text-white">
                          Transactions
                     </CardTitle>
                     <Select
@@ -76,6 +74,7 @@ export const Chart = ( { data = [] }: Props ) => {
                                         </p>
                                    </div>
                               </SelectItem>
+
                          </SelectContent>
                     </Select>
                </CardHeader>
@@ -84,7 +83,7 @@ export const Chart = ( { data = [] }: Props ) => {
                          <div className = "flex flex-col gap-y-4 items-center justify-center h-[350px] w-full">
                               <FileSearch className = "size-6 text-muted-foreground" />
                               <p className = "text-muted-foreground text-sm">
-                                   No data for this period
+                                   No data for this period!! Add Transaction Details
                               </p>
                          </div>
                     ) : (

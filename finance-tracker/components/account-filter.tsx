@@ -63,13 +63,13 @@ export const AccountFilter = () => {
                disabled = {isLoadingAccounts || isLoadingSummary}
           >
                <SelectTrigger
-                    className = "lg:w-auto w-full h-9 rounded-md px-3 font-normal bg-white/10 hover:bg-white/20 hover:text-white border-none focus:ring-offset-0 focus:ring-transparent outline-none text-white focus:bg-white/30 transition"
+                    className = "lg:w-auto w-full h-9 rounded-md px-3 font-normal bg-white/10 hover:bg-white/20 hover:text-white border-none focus:ring-offset-0 focus:ring-transparent outline-none text-white focus:bg-white/30 transition flex justify-center items-center"
                >
                     <SelectValue placeholder = "Select account" />
                </SelectTrigger>
-               <SelectContent>
+               <SelectContent className="flex items-center justify-center">
                     <SelectItem value = "all">
-                         All accounts
+                              All accounts
                     </SelectItem>
                     {accounts?.map( (account) => (
                          <SelectItem key = {account.id} value = {account.id}>

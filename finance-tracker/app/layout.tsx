@@ -34,8 +34,8 @@ export default function RootLayout({
     <ClerkProvider afterSignOutUrl = "/">
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-          // style={{ backgroundColor: "#121212", color: "#ffffff" }}   
+          className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+          // style={{ backgroundColor: "#2a3447"}}
         >
           <QueryProvider>
             <SheetProvider />

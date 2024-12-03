@@ -27,6 +27,3 @@ export const DELETE = handle(app);
 
 // Generating Rpc type
 export type AppType = typeof routes;
-
-
-// 2:18:00

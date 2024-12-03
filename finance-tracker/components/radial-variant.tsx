@@ -57,10 +57,10 @@ export const RadialVariant = ( { data }: Props ) => {
                                                        style = {{ backgroundColor: entry.color }}
                                                   />
                                                   <div className = "space-x-1">
-                                                       <span className = "text-sm text-muted-foreground">
+                                                       <span className = "text-sm text-gray-400">
                                                             {entry.value}
                                                        </span>
-                                                       <span className = "text-sm">
+                                                       <span className = "text-sm text-gray-300">
                                                             {formatCurrency(entry.payload.value)}
                                                        </span>
                                                   </div>
