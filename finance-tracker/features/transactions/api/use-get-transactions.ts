@@ -1,37 +1,64 @@
-import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
+// import { useQuery } from "@tanstack/react-query";
+// import { useSearchParams } from "next/navigation";
 
 import { client } from "@/lib/hono";
 import { convertAmountFromMiliunits } from "@/lib/utils";
+import { useQuery } from "@tanstack/react-query";
 
-export const useGetTransactions = () => {
-     const params = useSearchParams();
-     const from = params.get("from") || "";
-     const to = params.get("to") || "";
-     const accountId = params.get("accountId") || "";
+// import { client } from "@/lib/hono";
+// import { convertAmountFromMiliunits } from "@/lib/utils";
 
-     const query = useQuery({
-          queryKey: ["transactions", { from, to, accountId } ],
-          queryFn: async () => {
-               const response = await client.api.transactions.$get( {
-                    query: {
-                         from,
-                         to, 
-                         accountId,
-                    },
-               });
+// export const useGetTransactions = () => {
+//      const params = useSearchParams();
+//      const from = params.get("from") || "";
+//      const to = params.get("to") || "";
+//      const accountId = params.get("accountId") || "";
 
-               if (!response.ok) {
-                    throw new Error("Failed to fetch transactions")
-               }
+//      const query = useQuery({
+//           queryKey: ["transactions", { from, to, accountId } ],
+//           queryFn: async () => {
+//                const response = await client.api.transactions.$get( {
+//                     query: {
+//                          from,
+//                          to, 
+//                          accountId,
+//                     },
+//                });
 
-               const { data } = await response.json();
-               return data.map( (transaction) => ( {
-                    ...transaction,
-                    amount: convertAmountFromMiliunits(transaction.amount),
-               }));
-          },
+//                if (!response.ok) {
+//                     throw new Error("Failed to fetch transactions")
+//                }
+
+//                const { data } = await response.json();
+//                return data.map( (transaction) => ( {
+//                     ...transaction,
+//                     amount: convertAmountFromMiliunits(transaction.amount),
+//                }));
+//           },
+//      });
+
+//      return query;
+// };
+
+
+export const useGetTransactions = (params: { from: string; to: string; accountId: string }) => {
+     const { from, to, accountId } = params;
+ 
+     return useQuery({
+         queryKey: ["transactions", { from, to, accountId }],
+         queryFn: async () => {
+             const response = await client.api.transactions.$get({
+                 query: { from, to, accountId },
+             });
+ 
+             if (!response.ok) throw new Error("Failed to fetch transactions");
+ 
+             const { data } = await response.json();
+             return data.map((transaction) => ({
+                 ...transaction,
+                 amount: convertAmountFromMiliunits(transaction.amount),
+             }));
+         },
      });
-
-     return query;
-};
+ };
+ 

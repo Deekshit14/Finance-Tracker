@@ -1,4 +1,5 @@
 "use client"
+export const dynamic = "force-dynamic";
 
 import { toast } from "sonner";
 import { useState } from "react";
@@ -60,7 +61,10 @@ const TransactionPage = () => {
      const newTransaction = useNewTransaction();
      const createTransactions = useBulkCreateTransactions();
      const deleteTransactions = useBulkDeleteTransactions();
-     const transactionsQuery = useGetTransactions();
+     // const transactionsQuery = useGetTransactions();
+     const params = { from: "2023-01-01", to: "2023-12-31", accountId: "123" };
+     const transactionsQuery = useGetTransactions(params);
+
      const transactions = transactionsQuery.data || [];
 
      const isDisabled = transactionsQuery.isLoading || deleteTransactions.isLoading;
