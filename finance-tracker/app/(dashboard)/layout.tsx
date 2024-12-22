@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 
 type Props = {
@@ -11,6 +12,7 @@ const DashboardLayout = ({ children } : Props) => {
                <main className = "px-3 lg:px-14">
                     { children }
                </main>
+               <Footer />
           </div>
       );
 };

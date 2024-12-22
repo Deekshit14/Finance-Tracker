@@ -27,5 +27,5 @@ export const Header = () => {
                     <Filters />
                </div>
           </header>
-     )
-}
+     );
+};

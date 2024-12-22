@@ -100,8 +100,8 @@ export const columns: ColumnDef<ResponseType>[] = [
           header: ({ column }) => {     
                return (
                     <Button
-                    variant="ghost"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                         variant="ghost"
+                         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
                     >
                          Payee
                          <ArrowUpDown className="ml-2 h-4 w-4" />

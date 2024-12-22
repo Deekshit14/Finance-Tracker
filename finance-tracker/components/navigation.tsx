@@ -30,7 +30,7 @@ const routes = [
 ]
 
 export const Navigation = () => {
-     const [ isOpen, setIsOpen] = useState(false)
+     const [ isOpen, setIsOpen ] = useState(false)
 
      const router = useRouter();
      const pathName = usePathname();
@@ -53,7 +53,7 @@ export const Navigation = () => {
                               <Menu className="size-4" />
                          </Button>
                     </SheetTrigger>
-                    <SheetContent side = "left" className = "px-2">
+                    <SheetContent side = "left" className = "px-2 bg-gray-200">
                          <SheetTitle></SheetTitle>
                          <SheetDescription>
                          </SheetDescription>
@@ -63,7 +63,9 @@ export const Navigation = () => {
                                         key = {route.href}
                                         variant = {route.href === pathName ? "secondary" : "ghost"}
                                         onClick = { () => onClick(route.href)}
-                                        className="w-full justify-start"
+                                        className={`w-full justify-start ${
+                                             route.href === pathName ? "bg-blue-400 text-white hover:bg-blue-500" : "hover:bg-blue-500 hover:text-white"
+                                        }`}
                                    >
                                         {route.label}
                                    </Button>

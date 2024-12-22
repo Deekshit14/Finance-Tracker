@@ -36,8 +36,8 @@ const CategoriesPage = () => {
                          <Skeleton className="h-8 w-48" />
                     </CardHeader>
                     <CardContent>
-                         <div className="h-[500px] w-full flex items-center justify-center">
-                              <Loader2 className="size-6 text-slate-300 animate-spin" />
+                         <div className="h-[500px] w-full flex justify-center">
+                              <Loader2 className="size-10 text-slate-500 animate-spin" />
                          </div>
                     </CardContent>
                     </Card>
