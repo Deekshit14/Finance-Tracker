@@ -26,9 +26,25 @@ export const useCreateTransaction = () => {
                queryClient.invalidateQueries( { queryKey: ["summary"] } );
           },
 
-          onError: () => {
-               toast.error("Failded to create trasaction");
-          },
+          // onError: () => {
+          //      toast.error("Failded to create trasaction");
+          // },
+          onError: (error: Error) => {
+               console.error("Error details:", error);
+          
+               // Check for specific error types or messages
+               if (error instanceof Response) {
+                    if (!error.ok && error.status === 500) {
+                         toast.error("Database is unavailable. Please try again later.");
+                    } else if (error.status === 404) {
+                         toast.error("API endpoint not found.");
+                    } else {
+                         toast.error(`Unexpected error occurred: ${error.statusText}`);
+                    }
+               } else {
+                    toast.error("Failed to create transaction. Please check your network connection.");
+               }
+          },          
      });
 
      return mutation;
