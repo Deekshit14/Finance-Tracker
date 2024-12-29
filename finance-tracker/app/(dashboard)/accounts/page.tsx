@@ -18,9 +18,20 @@ import {
 } from "@/components/ui/card";
 
 import { columns } from "./columns";
+import { useEffect } from "react";
 
 
 const AccountsPage = () => {
+
+     useEffect(() => {
+          // Fetch accounts data or perform necessary state updates here
+          fetchAccounts();
+     }, []); // Empty dependency array ensures this runs only once when the component mounts
+  
+      const fetchAccounts = async () => {
+          // Fetch accounts data and update state
+     };
+
      const newAccount = useNewAccount();
      const deleteAccounts = useBulkDeleteAccounts();
      const accountsQuery = useGetAccounts();

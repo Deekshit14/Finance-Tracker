@@ -8,30 +8,27 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
-
-
 const routes = [
      {
-          href: "/", 
-          label: "Overview"
+          href: "/",
+          label: "Overview",
      },
      {
-          href: "/transactions", 
-          label: "Transactions"
+          href: "/transactions",
+          label: "Transactions",
      },
      {
-          href: "/accounts", 
-          label: "Accounts"
+          href: "/accounts",
+          label: "Accounts",
      },
      {
-          href: "/categories", 
-          label: "Categories"
+          href: "/categories",
+          label: "Categories",
      },
-]
+];
 
 export const Navigation = () => {
-     const [ isOpen, setIsOpen ] = useState(false)
-
+     const [isOpen, setIsOpen] = useState(false);
      const router = useRouter();
      const pathName = usePathname();
      const isMobile = useMedia("(max-width: 1024px)", false);
@@ -43,29 +40,32 @@ export const Navigation = () => {
 
      if (isMobile) {
           return (
-               <Sheet open = {isOpen} onOpenChange = {setIsOpen}>
+               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                     <SheetTrigger>
-                         <Button 
-                              variant = "outline" 
-                              size = "sm"
+                         <Button
+                              asChild // Prevents button from nesting inside another button
+                              variant="outline"
+                              size="sm"
                               className="font-normal bg-white/10 hover:bg-white/20 hover:text-white border-none focus-visible:ring-offset-0 focus-visible:ring-transparent outline-none text-white focus:bg-white/30 transition"
                          >
-                              <Menu className="size-4" />
+                              <div className="inline-flex items-center justify-center gap-2">
+                                   <Menu className="size-4" />
+                              </div>
                          </Button>
                     </SheetTrigger>
-                    <SheetContent side = "left" className = "px-2 bg-gray-200">
+                    <SheetContent side="left" className="px-2 bg-gray-200">
                          <SheetTitle></SheetTitle>
-                         <SheetDescription>
-                         </SheetDescription>
-                         <nav className = "flex flex-col gap-y-2 pt-6">
-                              { routes.map( (route) => (
-                                   <Button 
-                                        key = {route.href}
-                                        variant = {route.href === pathName ? "secondary" : "ghost"}
-                                        onClick = { () => onClick(route.href)}
-                                        className={`w-full justify-start ${
-                                             route.href === pathName ? "bg-blue-400 text-white hover:bg-blue-500" : "hover:bg-blue-500 hover:text-white"
-                                        }`}
+                         <SheetDescription></SheetDescription>
+                         <nav className="flex flex-col gap-y-2 pt-6">
+                              {routes.map((route) => (
+                                   <Button
+                                        key={route.href}
+                                        variant={route.href === pathName ? "secondary" : "ghost"}
+                                        onClick={() => onClick(route.href)}
+                                        className={`w-full justify-start ${route.href === pathName
+                                                  ? "bg-blue-400 text-white hover:bg-blue-500"
+                                                  : "hover:bg-blue-500 hover:text-white"
+                                             }`}
                                    >
                                         {route.label}
                                    </Button>
@@ -73,21 +73,19 @@ export const Navigation = () => {
                          </nav>
                     </SheetContent>
                </Sheet>
-          )
+          );
      }
 
      return (
           <nav className="hidden lg:flex items-center gap-x-2 overflow-x-auto">
-               { 
-                    routes.map((route) => (
-                         <NavButton
-                              key = {route.href}
-                              href = {route.href}
-                              label = {route.label}
-                              isActive = {pathName === route.href}
-                         />
-                    ))
-               }
+               {routes.map((route) => (
+                    <NavButton
+                         key={route.href}
+                         href={route.href}
+                         label={route.label}
+                         isActive={pathName === route.href}
+                    />
+               ))}
           </nav>
-     )
-}
+     );
+};

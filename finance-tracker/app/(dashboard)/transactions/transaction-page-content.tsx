@@ -132,7 +132,7 @@ export const TransactionPageContent = () => {
                                    <Plus className = "size-4 mr-2" />
                                    Add new
                               </Button>
-                              <UploadButton onUpload = { onUpload } />
+                              {/* <UploadButton onUpload = { onUpload } /> */}
                          </div>
                     </CardHeader>
                     <CardContent>

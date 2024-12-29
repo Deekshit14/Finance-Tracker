@@ -15,23 +15,33 @@ export function convertAmountToMiliunits(amount: number) {
 };
 
 export function formatCurrency(value: number) {
-  return Intl.NumberFormat("en-US", {
+  return Intl.NumberFormat("en-IN", {
     style: "currency",
-    currency: "USD",
+    currency: "INR",
     minimumFractionDigits: 2,
   }).format(value);
 };
 
-export function calculatePercentageChange(
-  current: number,
-  previous: number,
-) {
-  if (previous === 0) {
-    return previous === current ? 0 : 100;
+// export function calculatePercentageChange(
+//   current: number,
+//   previous: number,
+// ) {
+//   if (previous === 0) {
+//     return previous === current ? 0 : 100;
+//   }
+
+//   return ( (current - previous) / previous ) * 100;
+// };
+  export function calculatePercentageChange(
+    current: number,
+    previous: number,
+  ): number {
+    if (previous === 0) {
+      return current === 0 ? 0 : Infinity; // Indicate an infinite change.
+    }
+    return ((current - previous) / previous) * 100;
   }
 
-  return ( (current - previous) / previous ) * 100;
-};
 
 export function fillMissingDays(
   activeDays: {
@@ -100,7 +110,7 @@ export function formatPercentage(
     addPrefix: false,
   },
 ) {
-  const result = new Intl.NumberFormat("en-US", {
+  const result = new Intl.NumberFormat("en-IN", {
     style: "percent",
   }).format(value / 100);
 
